@@ -1,0 +1,37 @@
+<div class="form-control form-control-check">
+  <input
+    type="radio"
+    name="filter"
+    value="All"
+    label="all todos"
+    [(ngModel)]="filterTodoReminder"
+    (change)="onFilterTodo()"
+    (click)="onClickChange()"
+    (keyup)="(0)"
+  />
+  <span>{{ 'All(' + allTasks + ')' }}</span>
+
+  <input
+    type="radio"
+    name="filter"
+    value="NoReminder"
+    label="no reminder Todos"
+    [(ngModel)]="filterTodoReminder"
+    (change)="onFilterTodo()"
+    (click)="onClickChange()"
+    (keyup)="(0)"
+  />
+  <span>{{ 'No Reminder  (' + noReminderTasks + ')' }}</span>
+
+  <input
+    type="radio"
+    name="filter"
+    value="Reminder"
+    label="with reminders Todos"
+    [(ngModel)]="filterTodoReminder"
+    (change)="onFilterTodo()"
+    (click)="onClickChange()"
+    (keyup)="(0)"
+  />
+  <span>{{ 'Needs Reminder  (' + needsReminderTasks + ')' }}</span>
+</div>

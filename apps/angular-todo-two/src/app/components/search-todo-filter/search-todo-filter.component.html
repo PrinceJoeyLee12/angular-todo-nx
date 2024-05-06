@@ -1,0 +1,12 @@
+<div class="form-control">
+  <span>Search Todo: </span>
+  <input
+    class=".form-control"
+    type="text"
+    placeholder="Search todo"
+    name="search"
+    value=""
+    [(ngModel)]="textToSearch"
+    (keyup)="searchResults()"
+  />
+</div>

@@ -1,0 +1,27 @@
+<app-add-task (onAddTask)="createNewTask($event)"></app-add-task>
+<app-search-todo-filter
+  (searchTodos)="onSearchTodos($event)"
+  [isChanged]="isChanged"
+  [hidden]="!allTasks.length"
+></app-search-todo-filter>
+<app-filter-todo
+  *ngIf="allTasks?.length"
+  (filterTodo)="onFilterTasks($event)"
+  [tasks]="allTasks"
+  [allTasks]="allTodoCount()"
+  [noReminderTasks]="allNoReminder()"
+  [needsReminderTasks]="allNeedsReminder()"
+  (onChange)="onChange()"
+></app-filter-todo>
+<div *ngIf="tasks.length > 0; else noTasks">
+  <app-task-item
+    *ngFor="let task of tasks"
+    [task]="task"
+    (onDeleteTask)="deleteTask(task)"
+    (onToggleClick)="toggleReminder(task)"
+    >{{ task.text }}</app-task-item
+  >
+</div>
+<ng-template #noTasks>
+  <div>No Tasks to show</div>
+</ng-template>

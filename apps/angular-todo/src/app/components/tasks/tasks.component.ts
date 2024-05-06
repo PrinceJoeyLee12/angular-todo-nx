@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Task } from '../../schemas/Task';
+import { Task } from '@schemas';
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskService } from '../../services/task.service';
 import { AddTaskComponent } from '../add-task/add-task.component';
@@ -19,8 +19,8 @@ export class TasksComponent {
 
   constructor(private taskService: TaskService, private uiService: UiService) {}
 
-  ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => {
+  ngOnInit() {
+    this.taskService.getTasks().subscribe((tasks: Task[]) => {
       this.tasks = tasks;
       if (!tasks?.length) {
         this.uiService.toggleAddTask();
@@ -54,9 +54,6 @@ export class TasksComponent {
   }
 
   createNewTask(task: Task): void {
-    this.taskService.addTask(task).subscribe((newTask) => {
-      this.tasks.push(newTask);
-      return this.tasks;
-    });
+    console.log(task);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Task } from '../../schemas/Task';
+import { Task } from '@schemas';
 import { Subscription } from 'rxjs';
 import { UiService } from '../../services/ui.service';
 
